@@ -1,7 +1,8 @@
 package com.mycode.bms.theatremgmt.controller;
 
-import com.mycode.bms.theatremgmt.entity.Show;
 import com.mycode.bms.theatremgmt.model.GenericResponse;
+import com.mycode.bms.theatremgmt.model.ShowI;
+import com.mycode.bms.theatremgmt.model.ShowModel;
 import com.mycode.bms.theatremgmt.service.ShowsService;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
@@ -17,15 +18,15 @@ public class ShowsController {
 
     private final ShowsService screeningService;
 
-    @PostMapping("/add/t1")
-    public ResponseEntity < GenericResponse > createShow(@RequestBody @Validated Show show) {
-        GenericResponse response = screeningService.addShow(show);
+    @PostMapping("/add/s1")
+    public ResponseEntity < GenericResponse > createShow(@RequestBody @Validated ShowModel showModel) {
+        GenericResponse response = screeningService.addShow(showModel);
         return ResponseEntity.ok(response);
     }
 
-    @DeleteMapping("/remove/s1/{showId}")
-    public ResponseEntity<?> removeShow(@PathVariable("showId") Long showId) {
-        GenericResponse response = screeningService.removeShow(showId);
+    @DeleteMapping("/remove/s1")
+    public ResponseEntity<?> removeShow(@RequestBody @Validated ShowI showI) {
+        GenericResponse response = screeningService.removeShow(showI);
         return ResponseEntity.ok(response);
     }
 }

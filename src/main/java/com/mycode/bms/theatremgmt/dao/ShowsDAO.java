@@ -1,6 +1,7 @@
 package com.mycode.bms.theatremgmt.dao;
 
 import com.mycode.bms.theatremgmt.entity.Show;
+import com.mycode.bms.theatremgmt.entity.ShowPK;
 import com.mycode.bms.theatremgmt.repository.ShowsRepository;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
@@ -17,7 +18,7 @@ public class ShowsDAO {
         showsRepository.save(show);
     }
 
-    public void removeShow(Long showId) {
-        showsRepository.deleteById(showId);
+    public void removeShow(ShowPK showPK) {
+        showsRepository.deleteById(showPK);
     }
 }
